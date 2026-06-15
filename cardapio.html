@@ -1,0 +1,58 @@
+<!-- cardapio.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio de Teste</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 400px; margin: 20px auto; padding: 10px; background-color: #f7f7f7; }
+        .produto { background: white; padding: 15px; margin-bottom: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button { background-color: #25d366; color: white; border: none; padding: 10px 20px; font-weight: bold; width: 100%; border-radius: 8px; cursor: pointer; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <h2>🍔 Hamburgueria do Dev</h2>
+    
+    <div class="produto">
+        <div>
+            <strong>X-Burger</strong><br><small>R$ 15,00</small>
+        </div>
+        <input type="number" id="qtd_burger" value="0" min="0" style="width: 40px; text-align: center;">
+    </div>
+
+    <div class="produto">
+        <div>
+            <strong>Refrigerante Lata</strong><br><small>R$ 5,00</small>
+        </div>
+        <input type="number" id="qtd_refri" value="0" min="0" style="width: 40px; text-align: center;">
+    </div>
+
+    <button onclick="enviarPedido()">Finalizar Pedido</button>
+
+    <script>
+        function enviarPedido() {
+            const qtdBurger = document.getElementById('qtd_burger').value;
+            const qtdRefri = document.getElementById('qtd_refri').value;
+
+            if (qtdBurger == 0 && qtdRefri == 0) {
+                alert("Por favor, selecione pelo menos um item!");
+                return;
+            }
+
+            // Formata o pedido em texto estruturado
+            let textoPedido = `*[NOVO PEDIDO]*\n\n`;
+            if (qtdBurger > 0) textoPedido += `• ${qtdBurger}x X-Burger\n`;
+            if (qtdRefri > 0) textoPedido += `• ${qtdRefri}x Refrigerante Lata\n`;
+            
+            // INSIRA O SEU NÚMERO DE WHATSAPP (AQUELE QUE ESTÁ COM O ROBÔ RODANDO)
+            // Lembre de colocar o DDI (55) + DDD + Número. Ex: 5511999999999
+            const numeroWhatsBot = "55XXXXXXXXXXX"; 
+
+            // Redireciona o cliente de volta para o WhatsApp com o texto pronto
+            const linkWhatsapp = `https://wa.me/${numeroWhatsBot}?text=${encodeURIComponent(textoPedido)}`;
+            window.location.href = linkWhatsapp;
+        }
+    </script>
+</body>
+</html>
