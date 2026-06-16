@@ -28,7 +28,7 @@ client.on('message', async (msg) => {
         
         // Se você estiver rodando o cardápio.html no Live Server do VS Code,
         // o link provavelmente será esse. Caso contrário, substitua pelo link correto.
-        const linkCardapio = "http://127.0.0.1:5500/cardapio.html"; 
+        const linkCardapio = "https://soareshanderson19-art.github.io/teste-robo/"; 
 
         await msg.reply(
             `Olá! Que bom ter você aqui. 🍟\n\n` +
